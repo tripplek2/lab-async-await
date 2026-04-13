@@ -13,27 +13,22 @@ async function getPosts() {
   }
 }
 
-// displaying posts
+// displaying posts 
 function displayPosts(posts) {
   postList.innerHTML = "";
 
-  // Random 10 posts
-  const randomPosts = posts.sort(() => 0.5 - Math.random()).slice(0, 10);
+posts.forEach(post => {
+  const li = document.createElement("li");
+  const h1 = document.createElement("h1");
+  const p = document.createElement("p")
 
-  randomPosts.forEach(post => {
-    const li = document.createElement("li");
+  h1.textContent = post.title;
+  p.textContent = post.body;
 
-    li.innerHTML = `
-      <h3>${post.title}</h3>
-      <p>${post.body}</p>
-    `;
-
-    postList.appendChild(li);
-  });
+  li.appendChild(h1);
+  li.appendChild(p);
+  postList.appendChild(li);
+});
 }
 
 getPosts();
-
-if (loadBtn) {
-  loadBtn.addEventListener("click", getPosts);
-}
