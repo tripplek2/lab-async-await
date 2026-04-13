@@ -9,7 +9,7 @@ async function getPosts() {
 
     displayPosts(data);
   } catch (error) {
-    console.log("Error:", error);
+    console.log("Error:", error);  
   }
 }
 
